@@ -1,20 +1,20 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SharpSweeper
 {
+    // This is basically just a bunch of switch statements
+    // I really cant be bothered to comment all of this
+    // Esentially what the main, settings and difficulty menus do is ask for the user to pick an option eg start game, change difficulty and acts accordingly
+    // If anyone cares that much you can mostly tell whats going on by looking at the dialoge for each option
     class Menu
     {
+        private static string InvalidCommand = "Invalid Command:";
         private static int Width = 9;
         private static int Height = 9;
         private static int MineAmount = 10;
         public static void MainMenu()
         {
+            // MainMenu class, houses all of the functions and methods related to the main menu
             bool ExitGame = false;
             string MenuPrompt = "Enter Command:";
             while (!ExitGame)
@@ -35,19 +35,28 @@ namespace SharpSweeper
                     case "E":
                         ExitGame = true;
                         break;
-                    case "HEY LOUIS":
+                    case "HEY LOUIS": // Nyehehe
                         Game.PeterMode();
                         break;
                     default:
-                        MenuPrompt = "Invalid Command:";
+                        MenuPrompt = InvalidCommand;
                         break;
                 }
             }
             Console.Clear();
             Console.Write("Press [enter] to exit:");
             Console.Read();
+            void ShowMenuDialogue()
+            {
+                Console.Write(" __           _   _  __         _  _  _   _  _ \n" +
+                             @"(_  |_|  /\  |_) |_)(_  \    / |_ |_ |_) |_ |_)" + "\n" +
+                             @"__) | | /--\ | \ |  __)  \/\/  |_ |_ |   |_ | \" +
+                             "\n\nP: Play game\nD: Difficulty\nS: Settings\nE: Exit\n" + MenuPrompt);
+            
+            }
             void SettingsMenu()
             {
+                // Currently does nothing, need to think of ideas to add
                 Console.Clear();
                 bool ExitSettings = false;
                 string SettingsPrompt = "Enter Command:";
@@ -62,7 +71,7 @@ namespace SharpSweeper
                             break;
                         default:
                             Console.Clear();
-                            SettingsPrompt = "Invalid Command:";
+                            SettingsPrompt = InvalidCommand;
                             break;
                     }
                 }
@@ -71,6 +80,7 @@ namespace SharpSweeper
             }
             void DifficultySettings()
             {
+                // Houses all of the methods and functions to change the difficulty
                 bool ExitDiifcultySettings = false;
                 string DifficultySettingsPrompt = "Enter Command:";
                 while (!ExitDiifcultySettings)
@@ -86,7 +96,7 @@ namespace SharpSweeper
                             ChangeDifficulty();
                             break;
                         default:
-                            DifficultySettingsPrompt = "Invalid Command:";
+                            DifficultySettingsPrompt = InvalidCommand;
                             break;
                     }
                 }
@@ -140,12 +150,13 @@ namespace SharpSweeper
                                 break;
                             default:
                                 Console.Clear();
-                                ChangeDifficultyPrompt = "Invalid Command:";
+                                ChangeDifficultyPrompt = InvalidCommand;
                                 break;
                         }
                     }
                     void CustomGameMenu()
                     {
+                        // these three functions ask for a user input of the size/number of mines and ensures they are valid
                         Console.Clear();
                         Width = GetWidth();
                         Height = GetHeight();
@@ -246,14 +257,7 @@ namespace SharpSweeper
                     }
                 }
             }
-            void ShowMenuDialogue()
-            {
-                Console.Write(" __           _   _  __         _  _  _   _  _ \n" +
-                             @"(_  |_|  /\  |_) |_)(_  \    / |_ |_ |_) |_ |_)" + "\n" +
-                             @"__) | | /--\ | \ |  __)  \/\/  |_ |_ |   |_ | \" +
-                             "\n\nP: Play game\nD: Difficulty\nS: Settings\nE: Exit\n" + MenuPrompt);
-            
-            }
+
         }
     }
 }

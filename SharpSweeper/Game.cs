@@ -51,7 +51,7 @@ namespace SharpSweeper
                     int Count = 0;
                     foreach (char c in ShownGrid)
                     {
-                        if (c == 'X')
+                        if (c == '█')
                         {
                             Count++;
                         }
@@ -222,6 +222,7 @@ namespace SharpSweeper
         public static void PeterMode()
         {
             // Easter egg
+            // Funny family man
             Console.WriteLine("EASTER EGG Peter mode: Press [enter] to continue");
             Console.ReadLine();
             PlayGame(Grid.GenerateMineGrid(XSize = 40, YSize = 19,MineNum = 69), Special()) ;
@@ -302,6 +303,7 @@ namespace SharpSweeper
                                     {
                                         if (grid[CheckX, CheckY] != -6)
                                         {
+                                            // Im sorry for this abomination of if and for statements
                                             grid[CheckX, CheckY] = grid[CheckX, CheckY] + 1;
                                         }
                                     }
@@ -316,13 +318,13 @@ namespace SharpSweeper
         }
         public static char[,] GenerateShownGrid(int X, int Y)
         {
-            // Creates a new 2D char grid of size X,Y with all spaces set to 'X'
+            // Creates a new 2D char grid of size X,Y with all spaces set to '█'
             char[,] grid = new char[X, Y];
             for (int y = 0; y < Y; y++)
             {
                 for (int x = 0; x < X; x++)
                 {
-                    grid[x, y] = 'X';
+                    grid[x, y] = '█';
                 }
             }
             return grid;

@@ -59,5 +59,15 @@ namespace SharpSweeper.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon SharpSweeper {
+            get {
+                object obj = ResourceManager.GetObject("SharpSweeper", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
