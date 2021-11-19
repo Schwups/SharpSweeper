@@ -241,7 +241,7 @@ namespace SharpSweeper
                         Width = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Input height:");
                         Height = Convert.ToInt32(Console.ReadLine());
-                        Console.Write($"Input Width: (Grid size is {Width * Height}):");
+                        Console.Write($"Input Number of mines: (Grid size is {Width * Height}):");
                         MineAmount = Convert.ToInt32(Console.ReadLine());
                     }
                 }
