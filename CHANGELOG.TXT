@@ -1,0 +1,8 @@
+v1.0.2
+Changed the char used to display covered locations from 'X' to '█' (UTF-8 U+2588)
+Added a few comments to Menu.cs
+Added icon to executable
+v1.0.1
+Changed exactly one word in a menu prompt
+V1.0.0
+First version
